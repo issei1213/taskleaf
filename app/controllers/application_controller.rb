@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user
-  before_aciton :login_required
+  before_action :login_required
 
   private
 
@@ -9,6 +9,6 @@ class ApplicationController < ActionController::Base
   end
 
   def login_required
-    redirect_to login_path, unless current_user
+    redirect_to login_path unless current_user
   end
 end
