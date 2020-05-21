@@ -14,11 +14,12 @@
           id: ID
           name: 名称
           description: 詳しい説明
+          image: 画像
           created_at: 登録日時
           updated_at: 更新日時
         user:
           name: 名前
-          admin: メールアドレス
+          admin: 管理者
           password: パスワード
           password_confirmation: パスワード（確認）
           created_at: 登録日時
