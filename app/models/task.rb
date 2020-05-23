@@ -12,6 +12,14 @@ class Task < ApplicationRecord
     end
   end
 
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+      task = new
+      task.csv_attributes = row.to_hash.slice(*csv_attributes)
+      task.save!
+    end
+  end
+
   has_one_attached :image
 
   # before_validation :set_nameless_name
