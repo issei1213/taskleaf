@@ -43,6 +43,7 @@ gem 'pry-rails'
 gem 'rails_autolink'
 gem 'ransack'
 gem "kaminari"
+gem 'sidekiq'
 
 
 gem 'activerecord-nulldb-adapter'
