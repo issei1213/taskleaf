@@ -34,6 +34,22 @@ services:
     volumes:
       - "./app/redis:/data"
 
+  worker:
+    build: .
+    command: bundle exec sidekiq -C config/sidekiq.yml
+    environment:
+      - APP_SECRET=$APP_SECRET
+    volumes:
+      - ".:/var/app"
+    depends_on:
+      - "redis"
+    depends_on:
+      - web
+      - db
+    links:
+      - db
+      - redis
+
   portainer:
     image: portainer/portainer
     ports:
